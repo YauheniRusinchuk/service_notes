@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} SETTINGS  {% endblock title %}
+
+{% block content %}
+  <div class='header'>
+    <div class='info_user'>
+       {% include "home/profile.html" %}
+       <div class="container_notes">
+         <div class="container_settings">
+           <p> Mój użytkownik <br/>  <span>{{user.username}}</span></p>
+           <p> Mój e-mail <br/> <span>{{user.email}}</span></p>
+           {% if user.profile.description %}
+              <p> Opis <br/> <span class='description'>{{user.profile.description}}</span></p>
+           {% else %}
+              <p> Brak opisu! </p>
+           {% endif %}
+         </div>
+
+         <a href="{% url "settings:change" %}" class='change_user_info'> zmienić </a>
+
+      </div>
+    </div>
+      <a class='index_btn_logout' href="{% url 'home:logout' %}"> przestań </a>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} NOWA INFORMACJA  {% endblock title %}
+
+{% block content %}
+  <div class='header'>
+    <div class='info_user'>
+
+       {% include "home/profile.html" %}
+
+       <div class="container_notes">
+         <div class='add_note_new'>
+           <h3> NOWA INFORMACJA </h3>
+         <form method="POST" action="{% url 'notes:add_new' %}">
+           {% csrf_token %}
+           {{form}}
+           <button class="bnt" type="submit"> WYŚLIJ </button>
+         </form>
+       </div>
+
+
+      </div>
+    </div>
+      <a class='index_btn_logout' href="{% url 'home:logout' %}"> przestań </a>
+    </div>
+  </div>
+{% endblock %}

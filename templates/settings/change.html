@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} SETTINGS  {% endblock title %}
+
+{% block content %}
+  <div class='header'>
+    <div class='info_user'>
+       {% include "home/profile.html" %}
+       <div class="container_notes">
+         <h3> ZMIEŃ </h3>
+         <div class="user_change_informations">
+         <form method="POST">
+           {% csrf_token %}
+           <p> Username </p>
+           <input name='username' type='text' value={{user.username}} />
+           <p> Email </p>
+           <input name='email' type='email' value={{user.email}} />
+           <p> Description </p>
+           <textarea name='description'>{{user.profile.description}}</textarea>
+           <button class="change_user_info"> zmienić </button>
+         </form>
+       </div>
+      </div>
+    </div>
+      <a class='index_btn_logout' href="{% url 'home:logout' %}"> przestań </a>
+    </div>
+  </div>
+{% endblock %}

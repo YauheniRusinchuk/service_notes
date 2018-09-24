@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} NOTES  {% endblock title %}
+
+{% block content %}
+  <div class='header'>
+    <div class='info_user'>
+
+       {% include "home/profile.html" %}
+       <div class='note_add'>
+        <a href="{% url 'notes:new_note' %}"> NOWA </a>
+      </div>
+       <div class="container_notes">
+         {% if notes %}
+         {% for note in notes %}
+            <div class='note'>
+              <a href="{% url 'notes:detail' pk=note.pk %}">{{note.title}}</a>
+              <p> {{note.description}} </p>
+              <span> {{note.create_data}} </span> <br/>
+              <a id='delete_btn' href="{% url 'notes:note_delete' pk=note.pk %}">usunąć</a>
+            </div>
+         {% endfor %}
+         {% else %}
+            <p class='not_note'> BRAK INFORMACJI </p>
+         {% endif %}
+      </div>
+    </div>
+      <a class='index_btn_logout' href="{% url 'home:logout' %}"> przestań </a>
+    </div>
+  </div>
+{% endblock %}

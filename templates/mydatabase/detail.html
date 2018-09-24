@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} MY DATABASE DETAIL  {% endblock title %}
+
+{% block content %}
+  <div class='header'>
+    <div class='info_user'>
+
+       {% include "home/profile.html" %}
+
+       <div class="container_notes">
+         <div class='db_detail'>
+           <h3> {{mydb.name}} </h3>
+           <p> {{mydb.description}} </p>
+           <span> email: {{mydb.email}} <span>
+         </div>
+
+         <div class='send_email_form'>
+           <form  method="POST">
+             {% csrf_token %}
+             {{form}}
+             <label> Your email </label>
+             <input class='emailyou' value={{user.email}} name='fromemail' type='email' placeholder="your email" />
+             <label> Your password </label>
+             <input class='yourpassword' name='yourpassword' type='password'  placeholder="your password" />
+             <label> To email  </label>
+             <input class="emailyou"  value={{mydb.email}} name='toemail' type='email' placeholder="to email" />
+             <button type="submit"> SEND </button>
+           </form>
+         </div>
+       </div>
+      <a class='index_btn_logout' href="{% url 'home:logout' %}"> przestań </a>
+    </div>
+  </div>
+{% endblock %}

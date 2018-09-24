@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block title %} ZAPISZ SIĘ  {% endblock title %}
+
+
+{% block content %}
+<div class='bg'>
+  <div class="login_user">
+  <form method="POST">
+      {% csrf_token %}
+      <h3> ZAPISZ SIĘ  </h3>
+      <p>
+          <label>Username</label> <br />
+          <input class='input' type="text" value="" name="username" placeholder="username ...">
+      </p>
+      <p>
+          <label>Password</label> <br />
+          <input class='input' type="password" value="" name="password" placeholder="password ...">
+      </p>
+      <button type="submit">ZAPISZ SIĘ</button>
+  </form>
+  </div>
+</div>
+{% endblock content %}

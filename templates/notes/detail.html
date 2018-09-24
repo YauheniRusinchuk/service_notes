@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} NOTE DETAIL  {% endblock title %}
+
+{% block content %}
+  <div class='header'>
+    <div class='info_user'>
+       {% include "home/profile.html" %}
+       <div class="container_notes">
+         <div class='container_notes_detail'>
+           <h2>{{note.title}}</h3>
+           <p>{{note.description}}</p>
+           <span>{{note.create_data}}</span>
+        </div>
+      </div>
+    </div>
+      <a class='index_btn_logout' href="{% url 'home:logout' %}"> LOG OUT </a>
+    </div>
+  </div>
+{% endblock %}

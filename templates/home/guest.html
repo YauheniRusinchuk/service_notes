@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block title %} GOŚCIE {% endblock title %}
+
+
+{% block content %}
+<div class='bg'>
+  <div class='guest'>
+    <h3> Obsługa wysyłek i notatek </h3>
+    <a class='btn_' href="{% url 'home:login_user' %}"> zaloguj się </a>  <br />
+    <a class='btn_' href="{% url 'home:registration' %}"> rejestracja </a>
+  </div>
+</div>
+{% endblock content %}

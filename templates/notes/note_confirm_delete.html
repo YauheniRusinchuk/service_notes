@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %} USUŃ?  {% endblock title %}
+
+{% block content %}
+<div class='confirm_delete'>
+  <h1>NOTE USUŃ</h1>
+  <form method="post">{% csrf_token %}
+        Czy chcesz usunąć "{{ object }}" ?
+      <input  class='delete_confirm_btn' type="submit" value="USUŃ" />
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} MY DATABASE  {% endblock title %}
+
+{% block content %}
+  <div class='header'>
+    <div class='info_user'>
+
+       {% include "home/profile.html" %}
+       <div class='note_add'>
+        <a href=""> SEND MAIL </a>
+      </div>
+       <div class="container_notes">
+         <h3 class="email_lists_h3"> EMAIL LISTS </h3>
+         {% if result %}
+         {% for item in result %}
+            <div class="email_lists">
+              <form method="POST" action="{% url 'mydatabase:delete_change' pk=item.pk %}">
+                {% csrf_token %}
+                <button type="submit" class='add_list_email'> usunąć </button>
+              </form>
+              <a href="{% url 'mydatabase:mydb_detail' pk=item.pk %}">{{item.name}}</a>
+              <span>{{item.email}}</span>
+            </div>
+         {% endfor %}
+         {% else %}
+            <p> NIE POSIADAJĄ LISTÓW </p>
+         {% endif %}
+       </div>
+      <a class='index_btn_logout' href="{% url 'home:logout' %}"> przestań </a>
+    </div>
+  </div>
+{% endblock %}
